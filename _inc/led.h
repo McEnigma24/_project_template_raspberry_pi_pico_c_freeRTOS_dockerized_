@@ -36,36 +36,36 @@ void led_init()
     hard_assert(pico_led_init() == PICO_OK);
 }
 
-void toggle()
+void led_toggle()
 {
     led_state = !led_state;
     pico_set_led(led_state);
 }
 
-void toggle_t(int time)
+void led_toggle_t(int time)
 {
-    toggle();
+    led_toggle();
     sleep_ms(time);
 }
 
-void toggle_n(int n)
+void led_toggle_n(int n)
 {
     for(int i=0; i<n; i++)
     {
-        toggle();
+        led_toggle();
         sleep_ms(my_time);
-        toggle();
+        led_toggle();
         sleep_ms(my_time);
     }
 }
 
-void toggle_nt(int n, int time)
+void led_toggle_nt(int n, int time)
 {
     for(int i=0; i<n; i++)
     {
-        toggle();
+        led_toggle();
         sleep_ms(time);
-        toggle();
+        led_toggle();
         sleep_ms(time);
     }
 }
