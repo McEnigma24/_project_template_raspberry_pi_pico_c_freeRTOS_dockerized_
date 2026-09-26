@@ -8,7 +8,7 @@ void Task_Blink()
     for(;;)
     {
         led_toggle();
-        vTaskDelay(250);
+        vTaskDelay(1250);
     }
 }
 
