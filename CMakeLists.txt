@@ -4,13 +4,22 @@ set(PICO_SDK_PATH "${CMAKE_SOURCE_DIR}/external/pico-sdk")
 include(pico_sdk_import.cmake)
 
 set(FREERTOS_KERNEL_PATH "${CMAKE_CURRENT_SOURCE_DIR}/external/FreeRTOS-Kernel")
-include(${FREERTOS_KERNEL_PATH}/FreeRTOS_Kernel_import.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/external/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
+
+# ./external/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake
 
 project(MyProject LANGUAGES CXX C ASM)
 
 pico_sdk_init()
 set(ALL_LIBRARIES ${ALL_LIBRARIES} pico_stdlib)
-set(ALL_LIBRARIES ${ALL_LIBRARIES} freertos)
+set(ALL_LIBRARIES ${ALL_LIBRARIES}
+    # FreeRTOS-Kernel-Heap1
+    # FreeRTOS-Kernel-Heap2
+    # FreeRTOS-Kernel-Heap3
+    FreeRTOS-Kernel-Heap4
+    # FreeRTOS-Kernel-Heap5
+    # FreeRTOS-Kernel-Static
+)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED True)

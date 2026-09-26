@@ -1,9 +1,7 @@
 #include "__preprocessor__.h"
 #include "led.h"
-
 #include "FreeRTOS.h"
 #include "task.h"
-
 
 void Task_Blink()
 {
@@ -14,11 +12,9 @@ void Task_Blink()
     }
 }
 
-
 int main()
 {
     led_init();
-
 
     // Utworzenie zadania
     xTaskCreate(Task_Blink, "Blink Task", 128, NULL, 1, NULL);
@@ -28,22 +24,3 @@ int main()
 
     return 0;
 }
-
-
-
-
-// int main()
-// {
-//     led_init();
-
-//     toggle_nt(3, 300);
-
-//     while (true)
-//     {
-//         toggle_t(1000);
-//     }
-
-
-
-//     return 0;
-// }
